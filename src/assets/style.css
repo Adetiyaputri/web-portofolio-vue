@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafb;
+  color: #222;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: #0077ff;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: #005fcc;
+}
+
+#app {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav h1 {
+  font-weight: 700;
+  color: #111;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul a {
+  color: #333;
+  font-weight: 500;
+}
+
+nav ul a.router-link-exact-active {
+  color: #0077ff;
+}
+
+/* Section general */
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* Projects cards */
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  width: 280px;
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.project-card h3 {
+  color: #0077ff;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Buttons */
+button, .btn {
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.3s;
+
+}
+
+button:hover, .btn:hover {
+  background-color: #005fcc;
+}
+
+h1, h2, h3, h4, h5, h6, p, button, li, ul {
+  caret-color: transparent; /* sembunyikan kursor teks */
+  user-select: none;   /* biar gak bisa disorot */
+  outline: none;
+}
