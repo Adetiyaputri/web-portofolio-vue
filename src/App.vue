@@ -4,9 +4,9 @@
       <h1 class="logo">O.R.</h1>
 
       <div class="menu-toggle" @click="toggleMenu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
       
       <ul :class="['nav-links', { active: isMenuOpen }]">
@@ -118,7 +118,7 @@
 
     <section class="contact-section">
       <div id="contact" >
-        <h2>Contact Me</h2>
+        <h2>Hubungi Saya</h2>
         <div class="social-icons">
           <a href="mailto:octaviaarhmwt@gmail.com" target="_blank">
             <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Email" />
@@ -148,17 +148,6 @@ import { ref } from "vue";
 const isMenuOpen = ref(false);
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
-};
-
-export default {
-  data() {
-    return { menuActive: false };
-  },
-  methods: {
-    toggleMenu() {
-      this.menuActive = !this.menuActive;
-    },
-  },
 };
 
 const projects = [
@@ -239,12 +228,12 @@ body {
 
 /* ====== Navbar ====== */
 .navbar {
-  position: fixed;
-  width: 90%;
+  position: relatif;
+  width: 95%;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1000;
+  z-index: 10;
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
@@ -257,24 +246,17 @@ body {
   border-radius: 50px;
 }
 
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-}
-  
 .logo {
-  font-weight: 700;
+  font-weight: bold;
   font-family: "Playfair Display", serif;
   color: #ffffff;
-  font-size: 1.8rem;
+  font-size: 24px;
 }
 
 .nav-links {
   position: absolute;
   list-style: none;
-  display: flex;
+  display: none;
   width: 100%;
   text-align: center;
   top: 70px;
@@ -283,7 +265,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   padding: 15px 25px;
-  gap: 35px;
+  gap: 15px;
   opacity: 0;
   pointer-events: none;
   transform: translateY(-10px);
@@ -293,12 +275,12 @@ body {
   font-size: 1.1rem;
 }
 
-.nav-links li a {
+.nav-links a {
   text-decoration: none;
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 510;
   font-size: 1.1rem;
-  transition: color 0.3s;
+  transition: 0.3s;
 }
 
 .nav-links a:hover {
@@ -310,8 +292,7 @@ body {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  border-radius: 10px;
-  padding: 8px;
+  gap: 6px;
 }
 
 .menu-toggle span {
@@ -320,14 +301,6 @@ body {
   background: #fff;
   border-radius: 2px;
   transition: all 0.3s ease;
-}
-
-.bar {
-  height: 3px;
-  width: 25px;
-  background-color: white;
-  margin: 4px 0;
-  border-radius: 3px;
 }
 
 /* ===== Responsif Navbar ===== */
@@ -356,8 +329,8 @@ body {
     display: none;
     width: 100%;
     text-align: center;
-    top: 60px;
-    right: 20px;
+    top: 70px;
+    right: 25px;
     background: rgba(248, 43, 156, 0.9);
     border-radius: 15px;
     flex-direction: column;
@@ -379,21 +352,6 @@ body {
   
   .nav-links a {
     font-size: 0.9rem;
-  }
-}
-
-/* Jangan ubah tampilan laptop */
-@media only screen and (min-width: 769px) {
-  .menu-toggle {
-    display: none;
-  }
-
-  .nav-links {
-    position: static;
-    background: none;
-    opacity: 1;
-    pointer-events: auto;
-    transform: none;
   }
 }
 
@@ -1007,7 +965,6 @@ body {
   display: flex;
   justify-content: center;
   gap: 60px;
-  flex-wrap: wrap;
   margin-top: 30px;
   caret-color: transparent;
   user-select: none;
@@ -1038,68 +995,6 @@ body {
 
 #contact {
   animation: fadeInUp 1s ease;
-}
-
-/* ====== MEDIA QUERIES UNTUK RESPONSIVE ====== */
-
-/* Tablet dan HP besar (maks 768px) */
-@media only screen and (max-width: 768px) {
-  #contact {
-    padding: 60px 30px;
-    width: 90%;
-  }
-
-  #contact h2 {
-    font-size: 1.8rem;
-  }
-
-  .social-icons {
-    gap: 40px;
-  }
-
-  .social-icons img {
-    width: 45px;
-    height: 45px;
-  }
-}
-
-/* HP kecil (maks 480px) */
-@media only screen and (max-width: 480px) {
-  #contact {
-    padding: 40px 20px;
-  }
-
-  #contact h2 {
-    font-size: 1.6rem;
-  }
-
-  .social-icons {
-    flex-wrap: wrap;
-    gap: 25px;
-  }
-
-  .social-icons img {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-/* JANGAN GANGGU LAYAR BESAR */
-@media only screen and (min-width: 769px) {
-  #contact {
-    padding: 90px 60px;
-    max-width: 600px;
-    width: 80%;
-  }
-
-  #contact h2 {
-    font-size: 2.4rem;
-  }
-
-  .social-icons img {
-    width: 50px;
-    height: 50px;
-  }
 }
 
 /* ====== Footer ====== */
