@@ -2,7 +2,14 @@
   <div id="app">
     <nav class="navbar">
       <h1 class="logo">O.R.</h1>
-      <ul class="nav-links">
+
+      <div class="menu-toggle" @click="toggleMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <ul :class="['nav-links', { active: isMenuOpen }]">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#education">Education</a></li>
@@ -138,6 +145,11 @@
 <script setup>
 import { ref } from "vue";
 
+const isMenuOpen = ref(false);
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
+
 const projects = [
   { 
     title: 'Object Counter Berbasis Convolutional Neural Network Pada Ruas Tugu Yogyakarta',
@@ -211,6 +223,7 @@ body {
   font-family: 'Poppins', sans-serif;
   color: #222;
   background-color: #f9fafb;
+  overflow-x: hidden;
 }
 
 /* ====== Navbar ====== */
@@ -228,7 +241,7 @@ body {
   background: rgba(248, 43, 156, 0.363);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.5);
-  padding: 5px 45px;
+  padding: 10px 25px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   border-radius: 60px;
 }
@@ -237,6 +250,7 @@ body {
   font-weight: 650;
   font-family: "Playfair Display", serif;
   color: #ffffff;
+  font-size: 1.5rem;
 }
 
 .nav-links {
@@ -251,11 +265,67 @@ body {
   text-decoration: none;
   color: #ffffff;
   font-weight: 510;
+  font-size: 1.1rem;
   transition: 0.3s;
 }
 
 .nav-links a:hover {
   color: #f53eaf;
+}
+
+/* ===== Tombol hamburger ===== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ===== Responsif Navbar ===== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 20px;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 25px;
+    background: rgba(248, 43, 156, 0.9);
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 25px;
+    gap: 15px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  
+  .nav-links a {
+    font-size: 0.9rem;
+  }
 }
 
 .section {
@@ -907,6 +977,27 @@ footer {
   background: #ff6ab9;
   color: hsl(0, 0%, 100%);
   font-size: 20px;
+}
+
+/* ===== Extra Responsif HP kecil ===== */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .hero span {
+    font-size: 2rem;
+  }
+
+  .about-section p {
+    font-size: 1rem;
+  }
+
+  .edu-card,
+  .exp-card,
+  .project-card {
+    width: 100%;
+  }
 }
 
 /* ====== Optional: smooth snapping ====== */
