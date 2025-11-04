@@ -240,9 +240,9 @@ body {
 /* ====== Navbar ====== */
 .navbar {
   position: fixed;
-  width: 100%;
+  width: 90%;
   top: 0;
-  left: 0;
+  left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
   margin-top: 10px;
@@ -283,7 +283,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   padding: 15px 25px;
-  gap: 25px;
+  gap: 35px;
   opacity: 0;
   pointer-events: none;
   transform: translateY(-10px);
@@ -379,6 +379,21 @@ body {
   
   .nav-links a {
     font-size: 0.9rem;
+  }
+}
+
+/* Jangan ubah tampilan laptop */
+@media only screen and (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav-links {
+    position: static;
+    background: none;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
   }
 }
 
@@ -1026,7 +1041,9 @@ body {
 }
 
 /* ====== MEDIA QUERIES UNTUK RESPONSIVE ====== */
-@media (max-width: 768px) {
+
+/* Tablet dan HP besar (maks 768px) */
+@media only screen and (max-width: 768px) {
   #contact {
     padding: 60px 30px;
     width: 90%;
@@ -1046,7 +1063,8 @@ body {
   }
 }
 
-@media (max-width: 480px) {
+/* HP kecil (maks 480px) */
+@media only screen and (max-width: 480px) {
   #contact {
     padding: 40px 20px;
   }
@@ -1056,13 +1074,31 @@ body {
   }
 
   .social-icons {
-    flex-direction: row;
+    flex-wrap: wrap;
     gap: 25px;
   }
 
   .social-icons img {
     width: 40px;
     height: 40px;
+  }
+}
+
+/* JANGAN GANGGU LAYAR BESAR */
+@media only screen and (min-width: 769px) {
+  #contact {
+    padding: 90px 60px;
+    max-width: 600px;
+    width: 80%;
+  }
+
+  #contact h2 {
+    font-size: 2.4rem;
+  }
+
+  .social-icons img {
+    width: 50px;
+    height: 50px;
   }
 }
 
