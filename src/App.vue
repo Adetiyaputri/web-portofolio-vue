@@ -118,7 +118,7 @@
 
     <section class="contact-section">
       <div id="contact" >
-        <h2>Hubungi Saya</h2>
+        <h2>Contact Me</h2>
         <div class="social-icons">
           <a href="mailto:octaviaarhmwt@gmail.com" target="_blank">
             <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Email" />
@@ -992,6 +992,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 60px;
+  flex-wrap: wrap;
   margin-top: 30px;
   caret-color: transparent;
   user-select: none;
@@ -1022,6 +1023,47 @@ body {
 
 #contact {
   animation: fadeInUp 1s ease;
+}
+
+/* ====== MEDIA QUERIES UNTUK RESPONSIVE ====== */
+@media (max-width: 768px) {
+  #contact {
+    padding: 60px 30px;
+    width: 90%;
+  }
+
+  #contact h2 {
+    font-size: 1.8rem;
+  }
+
+  .social-icons {
+    gap: 40px;
+  }
+
+  .social-icons img {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  #contact {
+    padding: 40px 20px;
+  }
+
+  #contact h2 {
+    font-size: 1.6rem;
+  }
+
+  .social-icons {
+    flex-direction: row;
+    gap: 25px;
+  }
+
+  .social-icons img {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 /* ====== Footer ====== */
