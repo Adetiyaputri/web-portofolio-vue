@@ -292,17 +292,29 @@ body {
 /* ===== Responsif Navbar ===== */
 @media (max-width: 768px) {
   .menu-toggle {
-    display: flex;
+    display: block; /* pastikan hamburger muncul */
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .logo {
+    font-size: 20px;
   }
   
   .navbar {
-    flex-direction: column;
+    display: flex;
+    justify-content: space-between; /* biar logo & hamburger sejajar */
     align-items: center;
-    padding: 15px 20px;
+    flex-direction: row; /* jangan column */
+    padding: 10px 20px;
   }
 
   .nav-links {
     position: absolute;
+    display: none;
+    width: 100%;
+    text-align: center;
     top: 70px;
     right: 25px;
     background: rgba(248, 43, 156, 0.9);
@@ -321,6 +333,7 @@ body {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
+    display: flex;
   }
   
   .nav-links a {
