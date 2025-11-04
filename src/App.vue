@@ -228,12 +228,12 @@ body {
 
 /* ====== Navbar ====== */
 .navbar {
-  position: relatif;
+  position: fixed;
   width: 95%;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 10;
+  z-index: 1000;
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
@@ -254,23 +254,9 @@ body {
 }
 
 .nav-links {
-  position: absolute;
   list-style: none;
-  display: none;
-  width: 100%;
-  text-align: center;
-  top: 70px;
-  right: 0;
-  border-radius: 15px;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 15px 25px;
-  gap: 15px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-  z-index: 5;
+  display: flex;
+  gap: 25px;
   font-family: "Playfair Display", serif;
   font-size: 1.1rem;
 }
