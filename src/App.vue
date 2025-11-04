@@ -241,16 +241,16 @@ body {
   background: rgba(248, 43, 156, 0.363);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.5);
-  padding: 10px 25px;
+  padding: 10px 30px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  border-radius: 60px;
+  border-radius: 50px;
 }
 
 .logo {
-  font-weight: 650;
+  font-weight: bold;
   font-family: "Playfair Display", serif;
   color: #ffffff;
-  font-size: 1.5rem;
+  font-size: 24px;
 }
 
 .nav-links {
@@ -292,7 +292,7 @@ body {
 /* ===== Responsif Navbar ===== */
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block; /* pastikan hamburger muncul */
+    display: flex;
     font-size: 26px;
     color: white;
     cursor: pointer;
