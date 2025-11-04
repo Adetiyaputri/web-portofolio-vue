@@ -4,9 +4,9 @@
       <h1 class="logo">O.R.</h1>
 
       <div class="menu-toggle" @click="toggleMenu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </div>
       
       <ul :class="['nav-links', { active: isMenuOpen }]">
@@ -150,6 +150,17 @@ const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
 
+export default {
+  data() {
+    return { menuActive: false };
+  },
+  methods: {
+    toggleMenu() {
+      this.menuActive = !this.menuActive;
+    },
+  },
+};
+
 const projects = [
   { 
     title: 'Object Counter Berbasis Convolutional Neural Network Pada Ruas Tugu Yogyakarta',
@@ -228,12 +239,12 @@ body {
 
 /* ====== Navbar ====== */
 .navbar {
-  position: relatif;
-  width: 95%;
+  position: fixed;
+  width: 100%;
   top: 0;
-  left: 50%;
+  left: 0;
   transform: translateX(-50%);
-  z-index: 10;
+  z-index: 1000;
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
@@ -246,17 +257,24 @@ body {
   border-radius: 50px;
 }
 
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+  
 .logo {
-  font-weight: bold;
+  font-weight: 700;
   font-family: "Playfair Display", serif;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 1.8rem;
 }
 
 .nav-links {
   position: absolute;
   list-style: none;
-  display: none;
+  display: flex;
   width: 100%;
   text-align: center;
   top: 70px;
@@ -265,7 +283,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   padding: 15px 25px;
-  gap: 15px;
+  gap: 25px;
   opacity: 0;
   pointer-events: none;
   transform: translateY(-10px);
@@ -275,12 +293,12 @@ body {
   font-size: 1.1rem;
 }
 
-.nav-links a {
+.nav-links li a {
   text-decoration: none;
   color: #ffffff;
-  font-weight: 510;
+  font-weight: 600;
   font-size: 1.1rem;
-  transition: 0.3s;
+  transition: color 0.3s;
 }
 
 .nav-links a:hover {
@@ -292,7 +310,8 @@ body {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  gap: 6px;
+  border-radius: 10px;
+  padding: 8px;
 }
 
 .menu-toggle span {
@@ -301,6 +320,14 @@ body {
   background: #fff;
   border-radius: 2px;
   transition: all 0.3s ease;
+}
+
+.bar {
+  height: 3px;
+  width: 25px;
+  background-color: white;
+  margin: 4px 0;
+  border-radius: 3px;
 }
 
 /* ===== Responsif Navbar ===== */
@@ -329,8 +356,8 @@ body {
     display: none;
     width: 100%;
     text-align: center;
-    top: 70px;
-    right: 25px;
+    top: 60px;
+    right: 20px;
     background: rgba(248, 43, 156, 0.9);
     border-radius: 15px;
     flex-direction: column;
