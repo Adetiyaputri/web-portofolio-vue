@@ -24,7 +24,7 @@
       <div class="hero-content">
         <h2>Hello, I'm <span>Octavia Rahmawati</span></h2>
         <p style="font-weight: 550; color: #f672bd;">Data Science | Data Analyst | Copy Writing | Content Writing</p>
-        <button @click="scrollTo('projects')">Lihat Proyek Saya</button>
+        <button @click="scrollTo('projects')">My Projects</button>
       </div>
 
       <div class="hero-image">
